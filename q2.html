@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>
+		Bootstrap Assignment 2
+	</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+				$("#fbutton").click(function(){
+					$("#m-name").text("Name: "+$("#fname").val()+" "+$("#mname").val()+" "+$("#lname").val());
+					$("#memail").text("Email: "+$("#email").val());
+					$("#mphone").text("Phone: "+$("#phone").val());
+					sessionStorage.u_name=$("#fname").val()+" "+$("#mname").val()+" "+$("#lname").val();
+					sessionStorage.email=$("#email").val();
+					sessionStorage.phone=$("#phone").val();
+				})
+		});
+		
+	</script>
+	<style type="text/css">
+		#sub
+		{
+			float:right;
+		}
+		#sub1
+		{
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form role="form" action="q3.html" method="post">
+		<fieldset>
+			<legend>
+				Registration Info
+			</legend>
+				<div class="form-group">
+					<label for="fname" class="col-sm-2">First Name</label>
+					<div class="form-group col-sm-10">
+						<input type="text" name="fname" id="fname" class="form-control" required placeholder="First Name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="mname" class="col-sm-2">Middle Name</label>
+					<div class="form-group col-sm-10">
+						<input type="text" name="mname" id="mname" class="form-control" placeholder="Middle Name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="lname" class="col-sm-2">Last Name</label>
+					<div class="form-group col-sm-10">
+						<input type="text" name="lname" id="lname" class="form-control" required placeholder="Last Name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="col-sm-2">Email</label>
+					<div class="form-group col-sm-10">
+						<input type="email" name="email" id="email" class="form-control" required placeholder="Email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="phone" class="col-sm-2">Phone</label>
+					<div class="form-group col-sm-10">
+						<input type="tel" name="phone" id="phone" class="form-control"  required placeholder="Phone Number">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password" class="col-sm-2">Password</label>
+					<div class="form-group col-sm-10">
+						<input type="password" name="password" id="password" class="form-control" required placeholder="Password">
+					</div>
+				</div>
+				
+			</fieldset>
+			<div id="myModal" class="modal fade" role="dialog">
+			  	<div class="modal-dialog">
+
+			    <!-- Modal content-->
+			    	<div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Are You sure you want to submit this information?</h4>
+				      </div>
+				      <div class="modal-body">
+				        <p id="m-name"></p>
+				        <p id="mphone"></p>
+				        <p id="memail"></p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal" id="sub1">Cancel</button>
+				        <input type="submit" class="btn btn-primary " value="Submit" id="sub">
+				      </div>
+				    </div>
+		  		</div>
+			</div>
+		</form>
+		<div class="form-group">
+					<button class="btn btn-block btn-primary" data-toggle="modal" id="fbutton" data-target="#myModal">Register</button>
+		</div>
+		
+	</div>
+</body>
+</html>
